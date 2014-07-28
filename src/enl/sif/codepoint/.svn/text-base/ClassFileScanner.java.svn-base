@@ -1,0 +1,73 @@
+package enl.sifa;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.bcel.classfile.ClassFormatException;
+import org.apache.bcel.classfile.ClassParser;
+import org.apache.bcel.classfile.JavaClass;
+import org.apache.bcel.classfile.Method;
+import org.apache.bcel.generic.ClassGen;
+import org.apache.bcel.generic.MethodGen;
+
+public class ClassFileScanner {
+	private String dir;
+
+	public ClassFileScanner(String dir) {
+		this.dir = dir;
+	}
+
+	// to build class, method, bytecode database for regexp matching
+	public void scan() {
+		List<String> all_cls = get_all_classes(dir);
+		for (int i = 0; i < all_cls.size(); i++) {
+			String cls_fn = all_cls.get(i);
+			JavaClass jcls = null;
+
+			try {
+				jcls = new ClassParser(cls_fn).parse();
+			} catch (ClassFormatException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			assert jcls != null : "JavaClass jcls is NULL.";
+			ClassGen cgen = new ClassGen(jcls);
+
+			// TODO: store class names in db
+
+			for (Method mthd : jcls.getMethods()) {
+				MethodGen method = new MethodGen(mthd, cgen.getClassName(), cgen.getConstantPool());
+				if (!method.isAbstract() && !method.isInterface() && !method.getName().equals("<clinit>")) {
+					// only scan methods that are can be executed in real life
+					// TODO
+					// create method name and id mapping
+					// store method signature in db
+				}
+			}
+		}
+	}
+
+	private List<String> get_all_classes(String cls_dir) {
+		List<String> all_cls = new ArrayList<String>();
+
+		try {
+			Process proc = Runtime.getRuntime().exec("find " + cls_dir + " -name *.class");
+			BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()), 16);
+			String line;
+			while ((line = br.readLine()) != null) {
+				all_cls.add(line.trim());
+			}
+			proc.waitFor();
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
+
+		return all_cls;
+	}
+
+}

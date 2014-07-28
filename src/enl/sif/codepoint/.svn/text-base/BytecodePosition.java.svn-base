@@ -1,0 +1,15 @@
+package enl.sifa;
+
+public enum BytecodePosition {
+	ENTRY(-1), EXIT(Integer.MAX_VALUE);
+
+	private int pos;
+
+	BytecodePosition(int pos) {
+		this.pos = pos;
+	}
+
+	public int getValue() {
+		return this.pos;
+	}
+}

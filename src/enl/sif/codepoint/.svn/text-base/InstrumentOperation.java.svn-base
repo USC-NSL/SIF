@@ -1,0 +1,5 @@
+package enl.sifa;
+
+public enum InstrumentOperation {
+	INSERT, UPDATE,
+}

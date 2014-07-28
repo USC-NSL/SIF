@@ -1,0 +1,49 @@
+package enl.sifa;
+
+import java.util.Set;
+
+public class CPFinder {
+
+	/**
+	 * Reset/initialize internal variables
+	 */
+	public static void init() {
+	}
+
+	public static void setBytecode(BytecodePosition pos) {
+
+	}
+
+	/**
+	 * 
+	 * @param filter
+	 *            regexp that specifies target bytecode user wants to instrument
+	 */
+	public static void setBytecode(int type, String filter) {
+		// return null;
+	}
+
+	/**
+	 * 
+	 * @param filter
+	 *            regexp that is based on method signature
+	 */
+	public static void setMethod(String... filter) {
+		;
+	}
+
+	public static void setClass(String name_filter, String hierarchy_filter) {
+		if (name_filter != null) {
+			;
+		}
+
+		if (hierarchy_filter != null) {
+			;
+		}
+	}
+
+	public static Set<CP> apply() {
+		return null;
+	}
+
+}

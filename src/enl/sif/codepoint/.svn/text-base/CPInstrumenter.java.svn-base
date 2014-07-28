@@ -1,0 +1,32 @@
+package enl.sifa;
+
+public class CPInstrumenter {
+
+	public static boolean exec(CP cp, InstrumentOperation op, InstrumentPosition pos, String code) {
+		boolean ret = false;
+		switch (op) {
+		case INSERT:
+			switch (pos) {
+			case BEFORE:
+				break;
+			case AFTER:
+				break;
+			default:
+				// unsupported locations
+				break;
+			}
+			break;
+		case UPDATE:
+			switch (pos) {
+			case AT:
+				break;
+			default:
+				// unsupported locations
+				break;
+			}
+			break;
+		}
+
+		return ret;
+	}
+}

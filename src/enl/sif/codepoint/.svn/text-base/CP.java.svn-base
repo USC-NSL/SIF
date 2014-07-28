@@ -1,0 +1,21 @@
+package enl.sifa;
+
+/***
+ * This class represents Code Point which uniquely identifies a position in the
+ * collection of bytecodes. It consists of <global_method_id, bytecode_offset>.
+ * 
+ * @author haos@enl.usc.edu
+ * 
+ */
+public class CP {
+	private int mid, bcos;
+
+	public CP(int mid, int bcos) {
+		this.mid = mid;
+		this.bcos = bcos;
+	}
+
+	public String toString() {
+		return "CP<" + mid + ", " + bcos + ">";
+	}
+}

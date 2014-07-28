@@ -1,0 +1,40 @@
+package enl.sifa;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
+
+public class Main {
+	public static void main(String[] args) {
+		//		ClassFileScanner cfs = new ClassFileScanner(args[0]);
+		//		cfs.scan();
+
+		List<String> optionList = new ArrayList<String>();
+		// set compiler's classpath to be same as the runtime's
+		optionList.addAll(Arrays.asList("-classpath", System.getProperty("java.class.path")));
+
+		Util.log(optionList.toString());
+
+		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+		int ret = compiler.run(null, null, null, "/var/tmp/afa.java");
+		if (ret == 0) {
+			Util.log("OK");
+
+			try {
+				Class cls = ClassLoader.getSystemClassLoader().loadClass("enl.sifa.ex.foo");
+				for (Method m : cls.getDeclaredMethods()) {
+					Util.log(m.toString());
+					Util.log(m.getParameterTypes().toString());
+				}
+
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+}

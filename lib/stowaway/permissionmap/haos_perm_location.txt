@@ -1,0 +1,57 @@
+android.location.ILocationManager$Stub$Proxy.addGpsStatusListener(android.location.IGpsStatusListener)	android.permission.ACCESS_FINE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.addProximityAlert(double,double,float,long,android.app.PendingIntent)	android.permission.ACCESS_FINE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.addTestProvider(java.lang.String,boolean,boolean,boolean,boolean,boolean,boolean,boolean,int,int)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.clearTestProviderEnabled(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.clearTestProviderLocation(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.clearTestProviderStatus(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.getLastKnownLocation(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.getProviderInfo(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.getProviders(boolean)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.isProviderEnabled(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.removeTestProvider(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.reportLocation(android.location.Location,boolean)	android.permission.INSTALL_LOCATION_PROVIDER			
+android.location.ILocationManager$Stub$Proxy.requestLocationUpdates(java.lang.String,long,float,android.location.ILocationListener)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.requestLocationUpdatesPI(java.lang.String,long,float,android.app.PendingIntent)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.location.ILocationManager$Stub$Proxy.sendExtraCommand(java.lang.String,java.lang.String,android.os.Bundle)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_LOCATION_EXTRA_COMMANDS			
+android.location.ILocationManager$Stub$Proxy.setTestProviderEnabled(java.lang.String,boolean)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.setTestProviderLocation(java.lang.String,android.location.Location)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.ILocationManager$Stub$Proxy.setTestProviderStatus(java.lang.String,int,android.os.Bundle,long)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.LocationManager._requestLocationUpdates(java.lang.String,long,float,android.app.PendingIntent)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager._requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener,android.os.Looper)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.addGpsStatusListener(android.location.GpsStatus$Listener)	android.permission.ACCESS_FINE_LOCATION			
+android.location.LocationManager.addNmeaListener(android.location.GpsStatus$NmeaListener)	android.permission.ACCESS_FINE_LOCATION			
+android.location.LocationManager.addProximityAlert(double,double,float,long,android.app.PendingIntent)	android.permission.ACCESS_FINE_LOCATION			
+android.location.LocationManager.addTestProvider(java.lang.String,boolean,boolean,boolean,boolean,boolean,boolean,boolean,int,int)	android.permission.ACCESS_MOCK_LOCATION	Test providers must also be enabled in Settings.		
+android.location.LocationManager.best(java.util.List)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This method will only return the providers your permissions give you access to (FINE for GPS; either FINE or COARSE for network).		
+android.location.LocationManager.clearTestProviderEnabled(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION	Test providers must also be enabled in Settings.		
+android.location.LocationManager.clearTestProviderLocation(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION	Test providers must also be enabled in Settings.		
+android.location.LocationManager.clearTestProviderStatus(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION	Test providers must also be enabled in Settings.		
+android.location.LocationManager.getBestProvider(android.location.Criteria,boolean)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This method will only return the providers your permissions give you access to (FINE for GPS; either FINE or COARSE for network).		
+android.location.LocationManager.getLastKnownLocation(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.getProvider(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.getProviders(android.location.Criteria,boolean)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This method will only return the providers your permissions give you access to (FINE for GPS; either FINE or COARSE for network).		
+android.location.LocationManager.getProviders(boolean)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This method will only return the providers your permissions give you access to (FINE for GPS; either FINE or COARSE for network).		
+android.location.LocationManager.isProviderEnabled(java.lang.String)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.removeTestProvider(java.lang.String)	android.permission.ACCESS_MOCK_LOCATION	Test providers must also be enabled in Settings.		
+android.location.LocationManager.requestLocationUpdates(java.lang.String,long,float,android.app.PendingIntent)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener,android.os.Looper)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.requestLocationUpdates(java.lang.String,long,float,android.location.LocationListener)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.location.LocationManager.sendExtraCommand(java.lang.String,java.lang.String,android.os.Bundle)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION and android.permission.ACCESS_LOCATION_EXTRA_COMMANDS	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.  Then regardless of FINE vs COARSE, you also must supply ACCESS_LOCATION_EXTRA_COMMANDS.		
+android.location.LocationManager.setTestProviderEnabled(java.lang.String,boolean)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.LocationManager.setTestProviderLocation(java.lang.String,android.location.Location)	android.permission.ACCESS_MOCK_LOCATION			
+android.location.LocationManager.setTestProviderStatus(java.lang.String,int,android.os.Bundle,long)	android.permission.ACCESS_MOCK_LOCATION			
+android.telephony.TelephonyManager.disableLocationUpdates()	android.permission.CONTROL_LOCATION_UPDATES			
+android.telephony.TelephonyManager.enableLocationUpdates()	android.permission.CONTROL_LOCATION_UPDATES			
+android.telephony.TelephonyManager.getCellLocation()	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.telephony.TelephonyManager.getNeighboringCellInfo()	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+android.telephony.TelephonyManager.listen(android.telephony.PhoneStateListener,int)	android.permission.READ_PHONE_STATE or android.permission.ACCESS_COARSE_LOCATION or NONE	The permission check is dependent on the value of the second parameter.  16 requires ACCESS_COARSE_LOCATION; 128, 32, 4, 64, and 8 require READ_PHONE_STATE.  Also, does not accept ACCESS_FINE_LOCATION in place of COARSE for 16.		
+android.webkit.GeolocationPermissions$Callback.invoke	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This permission is not actually checked here.  However, calling this method indicates that the apps wants to support geolocation for the WebView, which is only possible if the app has one of these permissions.		
+android.webkit.GeolocationService.registerForLocationUpdates()	android.permission.ACCESS_FINE_LOCATION			
+android.webkit.GeolocationService.setEnableGps(boolean)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	ACCESS_FINE_LOCATION for gps; either permission is acceptable for network.		
+android.webkit.GeolocationService.start()	android.permission.ACCESS_FINE_LOCATION			
+android.webkit.WebChromeClient.onGeolocationPermissionsShowPrompt(java.lang.String,android.webkit.GeolocationPermissions.Callback)	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION	This permission is not actually checked here.  However, calling this method indicates that the apps wants to support geolocation for the WebView, which is only possible if the app has one of these permissions.		
+com.android.internal.telephony.ITelephony$Stub$Proxy.disableLocationUpdates()	android.permission.CONTROL_LOCATION_UPDATES			
+com.android.internal.telephony.ITelephony$Stub$Proxy.enableLocationUpdates()	android.permission.CONTROL_LOCATION_UPDATES			
+com.android.internal.telephony.ITelephony$Stub$Proxy.getCellLocation()	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+com.android.internal.telephony.ITelephony$Stub$Proxy.getNeighboringCellInfo()	android.permission.ACCESS_FINE_LOCATION or android.permission.ACCESS_COARSE_LOCATION			
+com.android.internal.telephony.ITelephonyRegistry$Stub$Proxy.listen(java.lang.String,com.android.internal.telephony.IPhoneStateListener,int,boolean)	android.permission.READ_PHONE_STATE or android.permission.ACCESS_COARSE_LOCATION or NONE			
